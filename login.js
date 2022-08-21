@@ -14,7 +14,6 @@ const entrar = () => {
             }
         })
         if (llave) {
-            // alert('Usuarios encontrado')
             window.location.href = "./taskproject/index.html";
         } else {
             const p = document.createElement('p');
@@ -39,16 +38,42 @@ const registrarse = () => {
         usuario,
         pass
     };
+    if (usuario && pass) {
+        if (localStorage.getItem('registros') === null) {
+            let registros = [];
+            registros.push(registro);
+            localStorage.setItem('registros', JSON.stringify(registros));
 
-    if (localStorage.getItem('registros') === null) {
-        let registros = [];
-        registros.push(registro);
-        localStorage.setItem('registros', JSON.stringify(registros));
-        // alert('Usuario Registrado con exito');
+            const p = document.createElement('p');
+            const divError = document.getElementById("mensajes");
+            p.classList.add('error');
+            p.textContent += "Usuario creado correctamente, redirigiendo al login....";
+            divError.appendChild(p);
+            setTimeout(function () {
+                window.location.href = "../index.html";
+            }, 2000);
+
+        } else {
+            let registros = JSON.parse(localStorage.getItem('registros'));
+            registros.push(registro);
+            localStorage.setItem('registros', JSON.stringify(registros));
+
+            const p = document.createElement('p');
+            const divError = document.getElementById("mensajes");
+            p.classList.add('login');
+            p.textContent += "Usuario creado correctamente, redirigiendo al login....";
+            divError.appendChild(p);
+            setTimeout(function () {
+                window.location.href = "../index.html";
+            }, 2000);
+            // alert('Usuario Registrado con exito');
+        }
     } else {
-        let registros = JSON.parse(localStorage.getItem('registros'));
-        registros.push(registro);
-        localStorage.setItem('registros', JSON.stringify(registros));
-        // alert('Usuario Registrado con exito');
+        const p = document.createElement('p');
+        const divError = document.getElementById("mensajes");
+        p.classList.add('error');
+        p.textContent += "Error, dejaste campos vacios";
+        divError.appendChild(p);
     }
+
 }
