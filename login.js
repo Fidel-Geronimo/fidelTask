@@ -14,13 +14,13 @@ const entrar = () => {
             }
         })
         if (llave) {
-            alert('Usuarios encontrado')
+            // alert('Usuarios encontrado')
             window.location.href = "./taskproject/index.html";
         } else {
-            alert('Usuarios no encontrado')
+            // alert('Usuarios no encontrado')
         }
     } else {
-        alert('No existen usuarios creados');
+        // alert('No existen usuarios creados');
     }
 }
 const registrarse = () => {
@@ -36,11 +36,11 @@ const registrarse = () => {
         let registros = [];
         registros.push(registro);
         localStorage.setItem('registros', JSON.stringify(registros));
-        alert('Usuario Registrado con exito');
+        // alert('Usuario Registrado con exito');
     } else {
         let registros = JSON.parse(localStorage.getItem('registros'));
         registros.push(registro);
         localStorage.setItem('registros', JSON.stringify(registros));
-        alert('Usuario Registrado con exito');
+        // alert('Usuario Registrado con exito');
     }
 }
