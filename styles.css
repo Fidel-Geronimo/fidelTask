@@ -70,3 +70,8 @@ a{
 .form-box button[type="submit"]:hover {
     background: none;
 }
+
+.error{
+    color: red;
+    font-weight: 400;
+}

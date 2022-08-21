@@ -17,10 +17,20 @@ const entrar = () => {
             // alert('Usuarios encontrado')
             window.location.href = "./taskproject/index.html";
         } else {
-            // alert('Usuarios no encontrado')
+            alert('Usuario no encontrado')
+            const p = document.createElement('p');
+            const divError = document.getElementById("mensajes");
+            p.classList.add('error');
+            p.textContent += "Error Usuario no encontrado";
+            divError.appendChild(p);
         }
     } else {
-        // alert('No existen usuarios creados');
+        alert('No hay usuarios')
+        const p = document.createElement('p');
+        const divError = document.getElementById("mensajes");
+        p.classList.add('error');
+        p.textContent += "Error no hay usuarios registrados";
+        divError.appendChild(p);
     }
 }
 const registrarse = () => {
