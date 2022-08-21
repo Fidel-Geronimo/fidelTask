@@ -19,8 +19,9 @@ const entrar = () => {
         } else {
             alert('Usuarios no encontrado')
         }
+    } else {
+        alert('No existen usuarios creados');
     }
-    alert('No existen usuarios creados');
 }
 const registrarse = () => {
     const usuario = document.getElementById('usuarioRegistro').value;
