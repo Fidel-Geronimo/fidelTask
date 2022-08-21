@@ -5,19 +5,22 @@ const datos = JSON.parse(localStorage.getItem('registros'));
 const entrar = () => {
     const usuario = document.getElementById('usuario').value;
     const pass = document.getElementById('pass').value;
-    console.log('asdasds');
     let llave = false;
-    let resultados = datos.map((x) => {
-        if (usuario == x.usuario && pass == x.pass) {
-            llave = true;
-            return;
+    if (datos) {
+        let resultados = datos.map((x) => {
+            if (usuario == x.usuario && pass == x.pass) {
+                llave = true;
+                return;
+            }
+        })
+        if (llave) {
+            alert('Usuarios encontrado')
+            window.location.href = "./taskproject/index.html";
+        } else {
+            alert('Usuarios no encontrado')
         }
-    })
-    console.log(datos);
-    if (llave) {
-        alert('existe')
-        window.location.href = "./taskproject/index.html";
     }
+    alert('No existen usuarios creados');
 }
 const registrarse = () => {
     const usuario = document.getElementById('usuarioRegistro').value;
