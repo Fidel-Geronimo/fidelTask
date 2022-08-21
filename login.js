@@ -36,11 +36,11 @@ const registrarse = () => {
         let registros = [];
         registros.push(registro);
         localStorage.setItem('registros', JSON.stringify(registros));
+        alert('Usuario Registrado con exito');
     } else {
         let registros = JSON.parse(localStorage.getItem('registros'));
         registros.push(registro);
         localStorage.setItem('registros', JSON.stringify(registros));
+        alert('Usuario Registrado con exito');
     }
-
-
 }
