@@ -1,17 +1,42 @@
 addEventListener('submit', (event) => {
     event.preventDefault();
 });
-const datos = [{ usuario: 'fidel', pass: 'fidel' }]
+const datos = JSON.parse(localStorage.getItem('registros'));
 const entrar = () => {
     const usuario = document.getElementById('usuario').value;
     const pass = document.getElementById('pass').value;
-
+    console.log('asdasds');
+    let llave = false;
     let resultados = datos.map((x) => {
         if (usuario == x.usuario && pass == x.pass) {
-            return true;
+            llave = true;
+            return;
         }
     })
-    if (resultados[0]) {
+    console.log(datos);
+    if (llave) {
+        alert('existe')
         window.location.href = "./taskproject/index.html";
     }
+}
+const registrarse = () => {
+    const usuario = document.getElementById('usuarioRegistro').value;
+    const pass = document.getElementById('passRegistro').value;
+    // Obtener el valor de una cadena guardada en formato JSON
+    let registro = {
+        usuario,
+        pass
+    };
+
+    if (localStorage.getItem('registros') === null) {
+        let registros = [];
+        registros.push(registro);
+        localStorage.setItem('registros', JSON.stringify(registros));
+    } else {
+        let registros = JSON.parse(localStorage.getItem('registros'));
+        registros.push(registro);
+        localStorage.setItem('registros', JSON.stringify(registros));
+    }
+
+
 }
