@@ -6,29 +6,38 @@ const entrar = () => {
     const usuario = document.getElementById('usuario').value;
     const pass = document.getElementById('pass').value;
     let llave = false;
-    if (datos) {
-        let resultados = datos.map((x) => {
-            if (usuario == x.usuario && pass == x.pass) {
-                llave = true;
-                return;
+    if (usuario && pass) {
+        if (datos) {
+            let resultados = datos.map((x) => {
+                if (usuario == x.usuario && pass == x.pass) {
+                    llave = true;
+                    return;
+                }
+            })
+            if (llave) {
+                window.location.href = "./taskproject/index.html";
+            } else {
+                const p = document.createElement('p');
+                const divError = document.getElementById("mensajes");
+                p.classList.add('error');
+                p.textContent += "Error Usuario no encontrado";
+                divError.appendChild(p);
             }
-        })
-        if (llave) {
-            window.location.href = "./taskproject/index.html";
         } else {
             const p = document.createElement('p');
             const divError = document.getElementById("mensajes");
             p.classList.add('error');
-            p.textContent += "Error Usuario no encontrado";
+            p.textContent += "Error no hay usuarios registrados";
             divError.appendChild(p);
         }
     } else {
         const p = document.createElement('p');
         const divError = document.getElementById("mensajes");
         p.classList.add('error');
-        p.textContent += "Error no hay usuarios registrados";
+        p.textContent += "Error, Dejaste Campos vacios"
         divError.appendChild(p);
     }
+
 }
 const registrarse = () => {
     const usuario = document.getElementById('usuarioRegistro').value;
