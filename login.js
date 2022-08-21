@@ -17,7 +17,6 @@ const entrar = () => {
             // alert('Usuarios encontrado')
             window.location.href = "./taskproject/index.html";
         } else {
-            alert('Usuario no encontrado')
             const p = document.createElement('p');
             const divError = document.getElementById("mensajes");
             p.classList.add('error');
@@ -25,7 +24,6 @@ const entrar = () => {
             divError.appendChild(p);
         }
     } else {
-        alert('No hay usuarios')
         const p = document.createElement('p');
         const divError = document.getElementById("mensajes");
         p.classList.add('error');
